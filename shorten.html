@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shorten</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="private.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="shorten-container">
+            <form id="shorten-form" method="post">
+                <h2>Create a shortcut for your URL</h2>
+                <input type="url" name="url" placeholder="Enter your URL" required>
+                <button type="submit">Shorten</button>
+                <div id="shorten-result">Your shorten URL will appear here</div>
+            </form>
+        </div>
+        <div class="list-container">
+            <h1>Your shortened URLs</h1>
+            <div id="shorten-list"></div>
+        </div>
+        <div class="face" id="face">
+            <h4>._.</h4>
+        </div>
+        <a href="https://github.com/Abdelmadjid207"><h6>Made by Abdelmadjid Taouinar</h6></a>
+    </div>
+    <header>
+        <a href="logout.html" class="logout-btn">Logout</a>
+    </header>
+    <script src="createShortUrl.js"></script>
+    <script src="getShortUrls.js"></script>
+    <script src="follow.js"></script>
+</body>
+</html>
