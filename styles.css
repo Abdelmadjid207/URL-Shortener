@@ -8,6 +8,8 @@
 body {
     background-color: #fcd163;
     background: linear-gradient(0deg, #fffed2, #fcd163);
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,6 +49,7 @@ body {
 .container button.hidden {
     background-color: transparent;
     border-color: #fff;
+    margin-top: 10px;
 }
 
 .container button:hover {
@@ -308,7 +311,7 @@ body {
 }
 
 .shorten-url:hover {
-    height: 160px;
+    height: 50vh;
 }
 
 
@@ -341,10 +344,80 @@ header {
 }
 
 
+/* prompt */
+
+.small-prompt {
+    width: 800px !important;  
+    height: 500px !important; 
+    padding: 15px !important;
+    border-radius: 20px !important;
+}
+
+.swal2-input {
+    width: 80% !important;
+    margin: 10px auto !important;
+    text-align: center !important;
+}
+
+.styled-confirm-btn {
+    background-color: #ff9603 !important;
+    color: white !important;
+    border-radius: 20px !important;
+    padding: 10px 30px !important;
+    font-weight: bold !important;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+.styled-confirm-btn:hover {
+    background-color: #e35f01 !important; 
+    font-size: 18px !important;
+}
 
 
+.styled-cancel-btn {
+    background-color: #ddd !important;
+    color: black !important;
+    border-radius: 20px !important;
+    padding: 10px 30px !important;
+    font-weight: bold !important;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+.styled-cancel-btn:hover {
+    background-color: #bbb !important; 
+    font-size: 18px !important;
+}
 
 
+/* alert */
+
+.custom-alert {
+    border-radius: 20px;
+    font-family: Verdana;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.custom-alert-title {
+    color: #ff9603;
+    font-weight: bold;
+}
+
+.custom-alert-button {
+    border-radius: 20px !important;
+    padding: 10px 15px !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    background-color: #ff9603 !important;
+    color: #fff !important;
+    border: none !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.custom-alert-button:hover {
+    background-color: #e35f01 !important;
+}
 
 
 

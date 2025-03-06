@@ -57,7 +57,20 @@ shortenForm.addEventListener('submit', async (e) => {
 
                     document.getElementById("copyButton").addEventListener("click", () => {
                         navigator.clipboard.writeText(shortUrl).then(() => {
-                            alert("Link copied!");
+                            Swal.fire({
+                                title: "Copied!",
+                                text: "The URL was copied to clipboard successfully.",
+                                icon: "success",
+                                confirmButtonColor: "#ff9603",
+                                confirmButtonText: "OK",
+                                background: "#fffed2",
+                                color: "#e35f01",
+                                customClass: {
+                                    popup: 'custom-alert',
+                                    title: 'custom-alert-title',
+                                    confirmButton: 'custom-alert-button'
+                                }
+                            });
                         }).catch(err => {
                             console.error("Failed to copy: ", err);
                         });
