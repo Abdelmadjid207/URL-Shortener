@@ -5,7 +5,10 @@ const updateShortUrl = async (urlId) => {
     if (!urlId) {
         await Swal.fire({
             title: "Invalid URL!",
-            text: "The URL seems invalid or unreachable.",
+            html: `<b>The URL seems invalid or unreachable</b><br><br>
+           Your input: <a href="${newUrl}" target="_blank" style="color: red; text-decoration: none; font-weight: bold;">"${newUrl}"</a> <br><br>
+           <b>Suggested Fix:</b> Check for any typo and Make sure it starts with "https://" (or with any other valid protocal acronym).<br>
+           Example: https://example.com`,
             icon: "warning",
             confirmButtonColor: "#ff9603",
             confirmButtonText: "OK",
@@ -47,7 +50,10 @@ const updateShortUrl = async (urlId) => {
     } catch (error) {
         await Swal.fire({
             title: "Invalid URL!",
-            text: "The URL seems invalid or unreachable.",
+            html: `<b>The URL seems invalid or unreachable</b><br><br>
+           Your input: <a href="${newUrl}" target="_blank" style="color: red; text-decoration: none; font-weight: bold;">"${newUrl}"</a> <br><br>
+           <b>Suggested Fix:</b> Check for any typo and Make sure it starts with "https://" (or with any other valid protocal acronym).<br>
+           Example: https://example.com`,
             icon: "warning",
             confirmButtonColor: "#ff9603",
             confirmButtonText: "OK",
@@ -61,6 +67,7 @@ const updateShortUrl = async (urlId) => {
         });
         return;
     }
+    
 
 
     if (!newUrl) return; // User canceled
