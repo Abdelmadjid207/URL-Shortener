@@ -7,8 +7,31 @@ shortenForm.addEventListener('submit', async (e) => {
     const token = localStorage.getItem('token');
     const shortenUrl = 'https://www.shorten-url-api.infobrains.club/api/private/urls';
 
-
     shortenResult.style.opacity = "0";
+
+    // Check if the URL is reachable
+    try {
+        const testResponse = await fetch(url, { method: 'HEAD', mode: 'no-cors' });
+    
+    } catch (error) {
+        await Swal.fire({
+            title: "Invalid URL!",
+            text: "The URL seems invalid or unreachable.",
+            icon: "warning",
+            confirmButtonColor: "#ff9603",
+            confirmButtonText: "OK",
+            background: "#fffed2",
+            color: "#e35f01",
+            customClass: {
+                popup: 'custom-alert',
+                title: 'custom-alert-title',
+                confirmButton: 'custom-alert-button'
+            }
+        });
+        return;
+    }
+    
+
     setTimeout(async () => {
         shortenResult.classList.add('result');
         shortenResult.innerHTML = `<p>Making URL...</p>`;

@@ -1,6 +1,22 @@
 const updateShortUrl = async (urlId) => {
+
+
+
     if (!urlId) {
-        showAlert("Invalid URL ID!", "error");
+        await Swal.fire({
+            title: "Invalid URL!",
+            text: "The URL seems invalid or unreachable.",
+            icon: "warning",
+            confirmButtonColor: "#ff9603",
+            confirmButtonText: "OK",
+            background: "#fffed2",
+            color: "#e35f01",
+            customClass: {
+                popup: 'custom-alert',
+                title: 'custom-alert-title',
+                confirmButton: 'custom-alert-button'
+            }
+        });
         return;
     }
 
@@ -24,6 +40,28 @@ const updateShortUrl = async (urlId) => {
             cancelButton: 'styled-cancel-btn'
         }
     });
+
+    try {
+        const testResponse = await fetch(newUrl, { method: 'HEAD', mode: 'no-cors' });
+    
+    } catch (error) {
+        await Swal.fire({
+            title: "Invalid URL!",
+            text: "The URL seems invalid or unreachable.",
+            icon: "warning",
+            confirmButtonColor: "#ff9603",
+            confirmButtonText: "OK",
+            background: "#fffed2",
+            color: "#e35f01",
+            customClass: {
+                popup: 'custom-alert',
+                title: 'custom-alert-title',
+                confirmButton: 'custom-alert-button'
+            }
+        });
+        return;
+    }
+
 
     if (!newUrl) return; // User canceled
 
