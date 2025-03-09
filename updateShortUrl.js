@@ -86,7 +86,20 @@ const updateShortUrl = async (urlId) => {
 
         if (!response.ok) {
             const errorData = await response.json();
-            showAlert(`Failed to update URL: ${errorData.message || response.statusText}`, "error");
+            await Swal.fire({
+                title: "Oops!",
+                text: "Failed to update URL",
+                icon: "warning",
+                confirmButtonColor: "#ff9603",
+                confirmButtonText: "OK",
+                background: "#fffed2",
+                color: "#e35f01",
+                customClass: {
+                    popup: 'custom-alert',
+                    title: 'custom-alert-title',
+                    confirmButton: 'custom-alert-button'
+                }
+            });
             return;
         }
 
@@ -110,9 +123,12 @@ const updateShortUrl = async (urlId) => {
     } catch (error) {
         console.error("Error updating URL:", error);
         await Swal.fire({
-            title: "Oops!",
-            text: "Error updating URL.",
-            icon: "success",
+            title: "Invalid URL!",
+            html: `<b>The URL seems invalid or unreachable</b><br><br>
+           Your input: <a href="${newUrl}" target="_blank" style="color: red; text-decoration: none; font-weight: bold;">"${newUrl}"</a> <br><br>
+           <b>Suggested Fix:</b> Check for any typo and Make sure it starts with "https://" (or with any other valid protocal acronym).<br>
+           Example: https://example.com`,
+            icon: "warning",
             confirmButtonColor: "#ff9603",
             confirmButtonText: "OK",
             background: "#fffed2",
