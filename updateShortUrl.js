@@ -109,6 +109,19 @@ const updateShortUrl = async (urlId) => {
 
     } catch (error) {
         console.error("Error updating URL:", error);
-        showAlert("Error updating the URL.", "error");
+        await Swal.fire({
+            title: "Oops!",
+            text: "Error updating URL.",
+            icon: "success",
+            confirmButtonColor: "#ff9603",
+            confirmButtonText: "OK",
+            background: "#fffed2",
+            color: "#e35f01",
+            customClass: {
+                popup: 'custom-alert',
+                title: 'custom-alert-title',
+                confirmButton: 'custom-alert-button'
+            }
+        });
     }
 };
